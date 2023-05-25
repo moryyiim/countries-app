@@ -18,6 +18,8 @@ const Home = () => {
         console.log("Error fetching country data: error");
       }
     };
+
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -40,13 +42,13 @@ const Home = () => {
     setSearchInput(value);
   };
 
-  const handleSearch = (e) => {
+  const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       return setSearchTerm(searchInput);
     }
   };
 
-  const handleRegion = (e) => {
+  const handleRegionChange = (e) => {
     const region = e.target.value;
     setSelectedRegion(region);
   };
@@ -56,12 +58,12 @@ const Home = () => {
       <input
         value={searchInput}
         onChange={handleChange}
-        onKeyDown={handleSearch}
+        onKeyDown={handleKeyDown}
         type="text"
         placeholder="Search for a country..."
       />
 
-      <select value={selectedRegion}>
+      <select value={selectedRegion} onChange={handleRegionChange}>
         <option value="All">Filter by Region</option>
         <option value="Africa">Africa</option>
         <option value="Americas">Americas</option>
@@ -69,6 +71,27 @@ const Home = () => {
         <option value="Europe">Europe</option>
         <option value="Oceania">Oceania</option>
       </select>
+
+      <ul className="countries-list">
+        {filteredCountries.map((country) => (
+          <li key={country.alpha3Code}>
+            <img src={country.flag} alt={country.name} />
+            <div className="country-details">
+              <h2>{country.name}</h2>
+              <p>
+                <strong>Population:</strong>
+                {country.population}
+              </p>
+              <p>
+                <strong>Region:</strong> {country.region}
+              </p>
+              <p>
+                <strong>Capital:</strong> {country.capital}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
