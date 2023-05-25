@@ -7,6 +7,8 @@ const Home = () => {
   const [selectedRegion, setSelectedRegion] = useState("All");
   const [searchInput, setSearchInput] = useState("");
 
+  //   * Fetch data from the data.json file so we can render to the page
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,6 +24,8 @@ const Home = () => {
     fetchData();
   }, []);
 
+  //   * Filtering out countries that match
+
   useEffect(() => {
     const filtered = countries.filter((country) => {
       const searchTermMatch = country.name
@@ -36,17 +40,23 @@ const Home = () => {
     setFilteredCountries(filtered);
   }, [searchTerm, selectedRegion, countries]);
 
+  // * Renders the data on each key stroke
+
   const handleChange = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
     setSearchInput(value);
   };
 
+  //   * Handles rendering data from the search bar
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       return setSearchTerm(searchInput);
     }
   };
+
+  //   * Handles region change for drop down menu
 
   const handleRegionChange = (e) => {
     const region = e.target.value;
@@ -55,22 +65,24 @@ const Home = () => {
 
   return (
     <>
-      <input
-        value={searchInput}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        type="text"
-        placeholder="Search for a country..."
-      />
+      <div class="search-filter">
+        <input
+          value={searchInput}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          type="text"
+          placeholder="Search for a country..."
+        />
 
-      <select value={selectedRegion} onChange={handleRegionChange}>
-        <option value="All">Filter by Region</option>
-        <option value="Africa">Africa</option>
-        <option value="Americas">Americas</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
-      </select>
+        <select value={selectedRegion} onChange={handleRegionChange}>
+          <option value="All">Filter by Region</option>
+          <option value="Africa">Africa</option>
+          <option value="Americas">Americas</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
+        </select>
+      </div>
 
       <ul className="countries-list">
         {filteredCountries.map((country) => (
