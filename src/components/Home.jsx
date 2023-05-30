@@ -154,31 +154,87 @@ const Home = () => {
       {/* Modal */}
 
       {modalOpen && (
-        <div className="modal bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
+        <div className="modal bg-[#fafafa] dark:bg-[#202c37] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out">
           <div className="button-container">
-            <button className="back-button" onClick={closeModal}>
+            <button
+              className="back-button dark:bg-[#2b3945] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out"
+              onClick={closeModal}
+            >
+              <i className="fa-solid fa-arrow-left"></i>
               Back
             </button>
           </div>
           <div className="modal-content">
-            <div class="modal-img-container">
+            <div className="modal-img-container">
               <img
                 className="modal-img"
                 src={selectedCountry.flag}
                 alt={selectedCountry.name}
               />
             </div>
+
             <div className="modal-details">
               <h2 className="country-title">{selectedCountry.name}</h2>
-              <p>
-                <strong>Population:</strong> {selectedCountry.population}
-              </p>
-              <p>
-                <strong>Region:</strong> {selectedCountry.region}
-              </p>
-              <p>
-                <strong>Capital:</strong> {selectedCountry.capital}
-              </p>
+
+              <div class="modal-country-details">
+                <div className="details-left">
+                  <p>
+                    <strong>Native Name:</strong> {selectedCountry.nativeName}
+                  </p>
+                  <p>
+                    <strong>Population:</strong>{" "}
+                    {selectedCountry.population.toLocaleString()}
+                  </p>
+                  <p>
+                    <strong>Region:</strong> {selectedCountry.region}
+                  </p>
+                  <p>
+                    <strong>Sub Region:</strong> {selectedCountry.subregion}
+                  </p>
+                  <p>
+                    <strong>Capital:</strong> {selectedCountry.capital}
+                  </p>
+                </div>
+
+                <div className="details-right">
+                  <p>
+                    <strong>Top Level Domain:</strong>
+                    {selectedCountry.topLevelDomain}
+                  </p>
+                  <p>
+                    <strong>Currencies:</strong>
+                    {selectedCountry.currencies
+                      .map((currency) => currency.name)
+                      .join(", ")}
+                  </p>
+                  <p>
+                    <strong>Languages:</strong>
+                    {selectedCountry.languages
+                      .map((language) => language.name)
+                      .join(", ")}
+                  </p>
+                </div>
+              </div>
+
+              <div className="border-countries">
+                <strong>Border Countries:</strong>
+                <div className="border-countries">
+                  {selectedCountry.borders.map((borderCode) => {
+                    const borderCountry = countries.find(
+                      (country) => country.alpha3Code === borderCode
+                    );
+                    return (
+                      <div
+                        className="border-country dark:bg-[#2b3945] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out"
+                        key={borderCountry.alpha3Code}
+                        onClick={() => openModal(borderCountry)}
+                      >
+                        {borderCountry.name}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
         </div>
