@@ -154,17 +154,21 @@ const Home = () => {
       {/* Modal */}
 
       {modalOpen && (
-        <div className="lightbox bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
-          <div className="lightbox-content">
+        <div className="modal bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
+          <div className="button-container">
             <button className="back-button" onClick={closeModal}>
               Back
             </button>
-            <img
-              className="lightbox-img"
-              src={selectedCountry.flag}
-              alt={selectedCountry.name}
-            />
-            <div className="lightbox-details">
+          </div>
+          <div className="modal-content">
+            <div class="modal-img-container">
+              <img
+                className="modal-img"
+                src={selectedCountry.flag}
+                alt={selectedCountry.name}
+              />
+            </div>
+            <div className="modal-details">
               <h2 className="country-title">{selectedCountry.name}</h2>
               <p>
                 <strong>Population:</strong> {selectedCountry.population}
