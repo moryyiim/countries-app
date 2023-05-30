@@ -15,7 +15,7 @@ const ToggleSwitch = () => {
   return (
     <>
       <button
-        className="toggle-switch text-[#111517] dark:text-[#ffffff]"
+        className="text-[#111517] dark:text-[#ffffff]"
         onClick={toggleDarkMode}
       >
         {isDarkMode ? (

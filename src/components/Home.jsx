@@ -65,39 +65,54 @@ const Home = () => {
     setSelectedRegion(region);
   };
 
-  const openLightbox = (country) => {
+  // * Modal
+
+  const openModal = (country) => {
     setSelectedCountry(country);
     setModalOpen(true);
   };
 
-  const closeLightbox = () => {
+  const closeModal = () => {
     setModalOpen(false);
   };
 
   return (
     <>
-      <div class="search-filter bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
-        <div class="search-box">
-          <input
-            class="search-input"
-            value={searchInput}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            type="text"
-            placeholder="Search for a country..."
-          />
-          <i class="fa fa-search"></i>
-        </div>
+      {/* Search Filters */}
 
-        <select value={selectedRegion} onChange={handleRegionChange}>
-          <option value="All">Filter by Region</option>
-          <option value="Africa">Africa</option>
-          <option value="Americas">Americas</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </select>
+      <div className="search-container bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
+        <div className="search-wrapper">
+          <div className="search-box">
+            <input
+              className="search-input"
+              value={searchInput}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              type="text"
+              placeholder="Search for a country..."
+            />
+            <i className="fa fa-search"></i>
+          </div>
+
+          <div className="select-wrapper">
+            <select
+              className="region-filter cursor-pointer"
+              value={selectedRegion}
+              onChange={handleRegionChange}
+            >
+              <option value="All">Filter by Region</option>
+              <option value="Africa">Africa</option>
+              <option value="Americas">Americas</option>
+              <option value="Asia">Asia</option>
+              <option value="Europe">Europe</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+            <i className="fa-solid fa-angle-down"></i>
+          </div>
+        </div>
       </div>
+
+      {/* Countries */}
 
       <div className="countries-container bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
         <div className="countries-wrapper bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
@@ -106,7 +121,7 @@ const Home = () => {
               <li
                 className="country-card bg-[#ffffff] dark:bg-[#2b3945] transition duration-500 ease-in-out cursor-pointer"
                 key={country.alpha3Code}
-                onClick={() => openLightbox(country)}
+                onClick={() => openModal(country)}
               >
                 <img
                   className="country-img"
@@ -142,12 +157,12 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Modal */}
 
       {modalOpen && (
         <div className="lightbox bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
           <div className="lightbox-content">
-            <button className="back-button" onClick={closeLightbox}>
+            <button className="back-button" onClick={closeModal}>
               Back
             </button>
             <img
