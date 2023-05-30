@@ -132,22 +132,16 @@ const Home = () => {
                   <h2 className="country-title text-[#111517] dark:text-[#ffffff]">
                     {country.name}
                   </h2>
-                  <p>
-                    <strong className="text-[#111517] dark:text-[#ffffff]">
-                      Population:
-                    </strong>
+                  <p className="text-[#111517] dark:text-[#ffffff]">
+                    <strong>Population:</strong>
                     {country.population}
                   </p>
-                  <p>
-                    <strong className="text-[#111517] dark:text-[#ffffff]">
-                      Region:
-                    </strong>
+                  <p className="text-[#111517] dark:text-[#ffffff]">
+                    <strong>Region:</strong>
                     {country.region}
                   </p>
-                  <p>
-                    <strong className="text-[#111517] dark:text-[#ffffff]">
-                      Capital:
-                    </strong>
+                  <p className="text-[#111517] dark:text-[#ffffff]">
+                    <strong>Capital:</strong>
                     {country.capital}
                   </p>
                 </div>

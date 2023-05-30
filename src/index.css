@@ -229,6 +229,22 @@ li {
 }
 
 @media screen and (max-width: 600px) {
+  .header {
+    padding: 2rem;
+  }
+
+  .nav-title {
+    font-size: 5vw;
+  }
+
+  .mode-toggle {
+    font-size: 3vw;
+  }
+
+  .region-filter {
+    font-size: 3.5vw;
+  }
+
   .countries-list {
     grid-template-columns: 1fr;
   }
