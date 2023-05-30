@@ -164,6 +164,7 @@ const Home = () => {
               Back
             </button>
           </div>
+
           <div className="modal-content">
             <div className="modal-img-container">
               <img
@@ -216,23 +217,27 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="border-countries">
-                <strong>Border Countries:</strong>
+              <div className="border-countries-container">
+                <strong className="border-countries-title">
+                  Border Countries:
+                </strong>
                 <div className="border-countries">
-                  {selectedCountry.borders.map((borderCode) => {
-                    const borderCountry = countries.find(
-                      (country) => country.alpha3Code === borderCode
-                    );
-                    return (
-                      <div
-                        className="border-country dark:bg-[#2b3945] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out"
-                        key={borderCountry.alpha3Code}
-                        onClick={() => openModal(borderCountry)}
-                      >
-                        {borderCountry.name}
-                      </div>
-                    );
-                  })}
+                  {selectedCountry &&
+                    selectedCountry.borders &&
+                    selectedCountry.borders.map((borderCode) => {
+                      const borderCountry = countries.find(
+                        (country) => country.alpha3Code === borderCode
+                      );
+                      return (
+                        <span
+                          className="border-country dark:bg-[#2b3945] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out"
+                          key={borderCountry.alpha3Code}
+                          onClick={() => openModal(borderCountry)}
+                        >
+                          {borderCountry.name}
+                        </span>
+                      );
+                    })}
                 </div>
               </div>
             </div>

@@ -74,7 +74,7 @@ li {
 
 .search-container {
   display: flex;
-  padding: 10rem 2rem 4rem;
+  padding: 10rem 2rem 0;
 }
 
 .search-wrapper {
@@ -125,7 +125,7 @@ li {
 .countries-container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 4rem 2rem;
 }
 
 .countries-wrapper {
@@ -142,16 +142,22 @@ li {
 .country-card {
   border-radius: 5px;
   box-shadow: 2px 4px 4px rgba(20, 20, 20, 0.4);
+  height: 100%;
+}
+
+.country-details {
+  padding: 1.5rem;
 }
 
 .country-img {
   width: 100%;
   height: 50%;
   object-fit: cover;
+  border-radius: 5px 5px 0 0;
 }
 
 .country-title {
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
@@ -219,6 +225,10 @@ li {
 }
 
 .modal-details {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
   width: 50%;
   margin-left: 2rem;
 }
@@ -228,8 +238,18 @@ li {
   justify-content: space-between;
 }
 
+.border-countries-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.border-countries-title {
+  white-space: nowrap;
+}
+
 .border-countries {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -238,6 +258,7 @@ li {
   cursor: pointer;
   font-size: 16px;
   padding: 0.5rem;
+  white-space: nowrap;
   border: none;
   border-radius: 5px;
   box-shadow: 1px 1px 4px 2px rgba(20, 20, 20, 0.4);
