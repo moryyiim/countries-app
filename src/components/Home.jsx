@@ -6,6 +6,8 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("All");
   const [searchInput, setSearchInput] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   //   * Fetch data from the data.json file so we can render to the page
 
@@ -63,6 +65,15 @@ const Home = () => {
     setSelectedRegion(region);
   };
 
+  const openLightbox = (country) => {
+    setSelectedCountry(country);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
+
   return (
     <>
       <div class="search-filter">
@@ -92,10 +103,15 @@ const Home = () => {
         <ul className="countries-list bg-[#fafafa] dark:bg-[#202c37]">
           {filteredCountries.map((country) => (
             <li
-              class="country-card bg-[#ffffff] dark:bg-[#2b3945]"
+              className="country-card bg-[#ffffff] dark:bg-[#2b3945]"
               key={country.alpha3Code}
+              onClick={() => openLightbox(country)}
             >
-              <img class="country-img" src={country.flag} alt={country.name} />
+              <img
+                className="country-img"
+                src={country.flag}
+                alt={country.name}
+              />
               <div className="country-details">
                 <h2 className="country-title text-[#111517] dark:text-[#ffffff]">
                   {country.name}
@@ -109,13 +125,13 @@ const Home = () => {
                 <p>
                   <strong className="text-[#111517] dark:text-[#ffffff]">
                     Region:
-                  </strong>{" "}
+                  </strong>
                   {country.region}
                 </p>
                 <p>
                   <strong className="text-[#111517] dark:text-[#ffffff]">
                     Capital:
-                  </strong>{" "}
+                  </strong>
                   {country.capital}
                 </p>
               </div>
@@ -123,6 +139,33 @@ const Home = () => {
           ))}
         </ul>
       </div>
+
+      {lightboxOpen && (
+        <div className="lightbox">
+          <div className="lightbox-content">
+            <button className="back-button" onClick={closeLightbox}>
+              Back
+            </button>
+            <img
+              className="lightbox-img"
+              src={selectedCountry.flag}
+              alt={selectedCountry.name}
+            />
+            <div className="lightbox-details">
+              <h2 className="country-title">{selectedCountry.name}</h2>
+              <p>
+                <strong>Population:</strong> {selectedCountry.population}
+              </p>
+              <p>
+                <strong>Region:</strong> {selectedCountry.region}
+              </p>
+              <p>
+                <strong>Capital:</strong> {selectedCountry.capital}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

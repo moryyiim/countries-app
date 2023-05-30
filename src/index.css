@@ -99,6 +99,47 @@ li {
   font-weight: bold;
 }
 
+/* Lightbox */
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fafafa;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.lightbox-content {
+  background-color: #fff;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.back-button {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.country-title {
+  margin-top: 0;
+}
+
 /* Responsive layout */
 @media screen and (max-width: 1200px) {
   .countries-list {
