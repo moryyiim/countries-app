@@ -17,6 +17,7 @@
 
 body {
   font-family: "Nunito Sans", sans-serif;
+  background: var(--dark-bg);
 }
 
 li {
@@ -32,6 +33,27 @@ li {
   font-size: 2rem;
 }
 
+.search-box {
+  position: relative;
+}
+
+.fa-search {
+  color: var(--dark-elements);
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  display: grid;
+  place-items: center;
+}
+
+.search-input {
+  padding: 0.5rem 3rem;
+  border: none;
+  border-radius: 5px;
+}
+
 .nav {
   width: 100%;
   margin: 0 auto;
@@ -45,4 +67,41 @@ li {
   display: flex;
   justify-content: space-between;
   padding: 2rem;
+}
+
+.countries-container {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.countries-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px; /* Adjust the gap between columns */
+}
+
+.countries-img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+
+/* Responsive layout */
+@media screen and (max-width: 1200px) {
+  .countries-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .countries-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .countries-list {
+    grid-template-columns: 1fr;
+  }
 }
