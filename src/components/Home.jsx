@@ -88,26 +88,35 @@ const Home = () => {
         </select>
       </div>
 
-      <div className="countries-container">
-        <ul className="countries-list">
+      <div className="countries-container bg-[#fafafa] dark:bg-[#202c37]">
+        <ul className="countries-list bg-[#fafafa] dark:bg-[#202c37]">
           {filteredCountries.map((country) => (
-            <li key={country.alpha3Code}>
-              <img
-                class="countries-img"
-                src={country.flag}
-                alt={country.name}
-              />
+            <li
+              class="country-card bg-[#ffffff] dark:bg-[#2b3945]"
+              key={country.alpha3Code}
+            >
+              <img class="country-img" src={country.flag} alt={country.name} />
               <div className="country-details">
-                <h2>{country.name}</h2>
+                <h2 className="country-title text-[#111517] dark:text-[#ffffff]">
+                  {country.name}
+                </h2>
                 <p>
-                  <strong>Population:</strong>
+                  <strong className="text-[#111517] dark:text-[#ffffff]">
+                    Population:
+                  </strong>
                   {country.population}
                 </p>
                 <p>
-                  <strong>Region:</strong> {country.region}
+                  <strong className="text-[#111517] dark:text-[#ffffff]">
+                    Region:
+                  </strong>{" "}
+                  {country.region}
                 </p>
                 <p>
-                  <strong>Capital:</strong> {country.capital}
+                  <strong className="text-[#111517] dark:text-[#ffffff]">
+                    Capital:
+                  </strong>{" "}
+                  {country.capital}
                 </p>
               </div>
             </li>

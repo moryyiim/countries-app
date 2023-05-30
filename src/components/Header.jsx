@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <>
-      <header class="header">
+      <header class="header bg-[#ffffff] dark:bg-[#2b3945]">
         <nav class="nav">
           <ul>
             <li class="title">Where in The World?</li>
