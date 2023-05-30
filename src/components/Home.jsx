@@ -80,7 +80,10 @@ const Home = () => {
     <>
       {/* Search Filters */}
 
-      <div className="search-container bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
+      <div
+        id="top"
+        className="search-container bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out"
+      >
         <div className="search-wrapper">
           <div className="search-box">
             <input
@@ -128,20 +131,24 @@ const Home = () => {
                   src={country.flag}
                   alt={country.name}
                 />
-                <div className="country-details">
+
+                <div>
                   <h2 className="country-title text-[#111517] dark:text-[#ffffff]">
                     {country.name}
                   </h2>
+                </div>
+
+                <div className="country-details">
                   <p className="text-[#111517] dark:text-[#ffffff]">
-                    <strong>Population:</strong>
+                    <b>Population: </b>
                     {country.population}
                   </p>
                   <p className="text-[#111517] dark:text-[#ffffff]">
-                    <strong>Region:</strong>
+                    <b>Region: </b>
                     {country.region}
                   </p>
                   <p className="text-[#111517] dark:text-[#ffffff]">
-                    <strong>Capital:</strong>
+                    <b>Capital: </b>
                     {country.capital}
                   </p>
                 </div>
@@ -175,7 +182,7 @@ const Home = () => {
             </div>
 
             <div className="modal-details">
-              <h2 className="country-title">{selectedCountry.name}</h2>
+              <h2 className="modal-country-title">{selectedCountry.name}</h2>
 
               <div class="modal-country-details">
                 <div className="details-left">

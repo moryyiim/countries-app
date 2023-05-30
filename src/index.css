@@ -19,12 +19,20 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Nunito Sans", sans-serif;
 }
 
 li {
   list-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .header {
@@ -136,17 +144,15 @@ li {
 .countries-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 6rem; /* Adjust the gap between columns */
+  grid-gap: 4.5rem; /* Adjust the gap between columns */
 }
 
 .country-card {
   border-radius: 5px;
   box-shadow: 2px 4px 4px rgba(20, 20, 20, 0.4);
   height: 100%;
-}
-
-.country-details {
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .country-img {
@@ -159,6 +165,21 @@ li {
 .country-title {
   font-size: 1.25rem;
   font-weight: bold;
+  padding: 1.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 300px;
+  display: block;
+  overflow: hidden;
+}
+
+.country-details {
+  padding: 0 1.5rem 2rem;
+}
+
+.country-card .country-details {
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 /* Modal */
@@ -220,8 +241,10 @@ li {
   object-fit: cover;
 }
 
-.country-title {
+.modal-country-title {
+  font-size: 2rem;
   margin-top: 0;
+  font-weight: bold;
 }
 
 .modal-details {
