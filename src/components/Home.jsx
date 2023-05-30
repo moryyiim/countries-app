@@ -76,7 +76,7 @@ const Home = () => {
 
   return (
     <>
-      <div class="search-filter">
+      <div class="search-filter bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
         <div class="search-box">
           <input
             class="search-input"
@@ -99,51 +99,53 @@ const Home = () => {
         </select>
       </div>
 
-      <div className="countries-container bg-[#fafafa] dark:bg-[#202c37]">
-        <ul className="countries-list bg-[#fafafa] dark:bg-[#202c37]">
-          {filteredCountries.map((country) => (
-            <li
-              className="country-card bg-[#ffffff] dark:bg-[#2b3945]"
-              key={country.alpha3Code}
-              onClick={() => openLightbox(country)}
-            >
-              <img
-                className="country-img"
-                src={country.flag}
-                alt={country.name}
-              />
-              <div className="country-details">
-                <h2 className="country-title text-[#111517] dark:text-[#ffffff]">
-                  {country.name}
-                </h2>
-                <p>
-                  <strong className="text-[#111517] dark:text-[#ffffff]">
-                    Population:
-                  </strong>
-                  {country.population}
-                </p>
-                <p>
-                  <strong className="text-[#111517] dark:text-[#ffffff]">
-                    Region:
-                  </strong>
-                  {country.region}
-                </p>
-                <p>
-                  <strong className="text-[#111517] dark:text-[#ffffff]">
-                    Capital:
-                  </strong>
-                  {country.capital}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+      <div className="countries-container bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
+        <div className="countries-wrapper bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
+          <ul className="countries-list bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
+            {filteredCountries.map((country) => (
+              <li
+                className="country-card bg-[#ffffff] dark:bg-[#2b3945] transition duration-500 ease-in-out cursor-pointer"
+                key={country.alpha3Code}
+                onClick={() => openLightbox(country)}
+              >
+                <img
+                  className="country-img"
+                  src={country.flag}
+                  alt={country.name}
+                />
+                <div className="country-details">
+                  <h2 className="country-title text-[#111517] dark:text-[#ffffff]">
+                    {country.name}
+                  </h2>
+                  <p>
+                    <strong className="text-[#111517] dark:text-[#ffffff]">
+                      Population:
+                    </strong>
+                    {country.population}
+                  </p>
+                  <p>
+                    <strong className="text-[#111517] dark:text-[#ffffff]">
+                      Region:
+                    </strong>
+                    {country.region}
+                  </p>
+                  <p>
+                    <strong className="text-[#111517] dark:text-[#ffffff]">
+                      Capital:
+                    </strong>
+                    {country.capital}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       {/* Lightbox */}
 
       {modalOpen && (
-        <div className="lightbox">
+        <div className="lightbox bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
           <div className="lightbox-content">
             <button className="back-button" onClick={closeLightbox}>
               Back

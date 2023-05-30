@@ -74,6 +74,10 @@ li {
 
 .countries-container {
   width: 100%;
+  margin: 0 auto;
+}
+
+.countries-wrapper {
   max-width: 90vw;
   margin: 0 auto;
 }
@@ -105,7 +109,6 @@ li {
   position: fixed;
   top: 0;
   left: 0;
-  background: #fafafa;
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -115,7 +118,6 @@ li {
 }
 
 .lightbox-content {
-  background-color: #fff;
   max-width: 800px;
   padding: 20px;
   border-radius: 5px;
@@ -123,7 +125,6 @@ li {
 }
 
 .back-button {
-  background-color: #fff;
   border: none;
   cursor: pointer;
   font-size: 16px;
