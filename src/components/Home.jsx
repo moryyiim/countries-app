@@ -7,7 +7,7 @@ const Home = () => {
   const [selectedRegion, setSelectedRegion] = useState("All");
   const [searchInput, setSearchInput] = useState("");
   const [selectedCountry, setSelectedCountry] = useState(null);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   //   * Fetch data from the data.json file so we can render to the page
 
@@ -67,11 +67,11 @@ const Home = () => {
 
   const openLightbox = (country) => {
     setSelectedCountry(country);
-    setLightboxOpen(true);
+    setModalOpen(true);
   };
 
   const closeLightbox = () => {
-    setLightboxOpen(false);
+    setModalOpen(false);
   };
 
   return (
@@ -140,7 +140,9 @@ const Home = () => {
         </ul>
       </div>
 
-      {lightboxOpen && (
+      {/* Lightbox */}
+
+      {modalOpen && (
         <div className="lightbox">
           <div className="lightbox-content">
             <button className="back-button" onClick={closeLightbox}>
