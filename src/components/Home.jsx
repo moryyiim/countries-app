@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedRegion, setSelectedRegion] = useState("All");
-  const [searchInput, setSearchInput] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedRegion, setSelectedRegion] = useState('All');
+  const [searchInput, setSearchInput] = useState('');
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -14,12 +14,12 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("/data.json");
+        const res = await fetch('/data.json');
         const data = await res.json();
         setCountries(data);
         setFilteredCountries(data);
       } catch (err) {
-        console.log("Error fetching country data: error");
+        console.log('Error fetching country data: error');
       }
     };
 
@@ -35,7 +35,7 @@ const Home = () => {
         .includes(searchTerm.toLowerCase());
 
       const regionMatch =
-        selectedRegion === "All" || country.region === selectedRegion;
+        selectedRegion === 'All' || country.region === selectedRegion;
 
       return searchTermMatch & regionMatch;
     });
@@ -53,7 +53,7 @@ const Home = () => {
   //   * Handles rendering data from the search bar
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       return setSearchTerm(searchInput);
     }
   };
@@ -81,73 +81,73 @@ const Home = () => {
       {/* Search Filters */}
 
       <div
-        id="top"
-        className="search-container bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out"
+        id='top'
+        className='search-container bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out'
       >
-        <div className="search-wrapper">
-          <div className="search-box">
+        <div className='search-wrapper'>
+          <div className='search-box'>
             <input
-              className="search-input"
+              className='search-input'
               value={searchInput}
               onChange={handleChange}
               onKeyDown={handleKeyDown}
-              type="text"
-              placeholder="Search for a country..."
+              type='text'
+              placeholder='Search for a country...'
             />
-            <i className="fa fa-search"></i>
+            <i className='fa fa-search'></i>
           </div>
 
-          <div className="select-wrapper">
+          <div className='select-wrapper'>
             <select
-              className="region-filter cursor-pointer"
+              className='region-filter cursor-pointer'
               value={selectedRegion}
               onChange={handleRegionChange}
             >
-              <option value="All">Filter by Region</option>
-              <option value="Africa">Africa</option>
-              <option value="Americas">Americas</option>
-              <option value="Asia">Asia</option>
-              <option value="Europe">Europe</option>
-              <option value="Oceania">Oceania</option>
+              <option value='All'>Filter by Region</option>
+              <option value='Africa'>Africa</option>
+              <option value='Americas'>Americas</option>
+              <option value='Asia'>Asia</option>
+              <option value='Europe'>Europe</option>
+              <option value='Oceania'>Oceania</option>
             </select>
-            <i className="fa-solid fa-angle-down"></i>
+            <i className='fa-solid fa-angle-down'></i>
           </div>
         </div>
       </div>
 
       {/* Countries */}
 
-      <div className="countries-container bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
-        <div className="countries-wrapper bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
-          <ul className="countries-list bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out">
+      <div className='countries-container bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out'>
+        <div className='countries-wrapper bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out'>
+          <ul className='countries-list bg-[#fafafa] dark:bg-[#202c37] transition duration-500 ease-in-out'>
             {filteredCountries.map((country) => (
               <li
-                className="country-card bg-[#ffffff] dark:bg-[#2b3945] transition duration-500 ease-in-out cursor-pointer"
+                className='country-card bg-[#ffffff] dark:bg-[#2b3945] transition duration-500 ease-in-out cursor-pointer'
                 key={country.alpha3Code}
                 onClick={() => openModal(country)}
               >
                 <img
-                  className="country-img"
+                  className='country-img'
                   src={country.flag}
                   alt={country.name}
                 />
 
                 <div>
-                  <h2 className="country-title text-[#111517] dark:text-[#ffffff]">
+                  <h2 className='country-title text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out'>
                     {country.name}
                   </h2>
                 </div>
 
-                <div className="country-details">
-                  <p className="text-[#111517] dark:text-[#ffffff]">
+                <div className='country-details'>
+                  <p className='text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out'>
                     <b>Population: </b>
                     {country.population}
                   </p>
-                  <p className="text-[#111517] dark:text-[#ffffff]">
+                  <p className='text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out'>
                     <b>Region: </b>
                     {country.region}
                   </p>
-                  <p className="text-[#111517] dark:text-[#ffffff]">
+                  <p className='text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out'>
                     <b>Capital: </b>
                     {country.capital}
                   </p>
@@ -161,74 +161,74 @@ const Home = () => {
       {/* Modal */}
 
       {modalOpen && (
-        <div className="modal bg-[#fafafa] dark:bg-[#202c37] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out">
-          <div className="button-container">
+        <div className='modal bg-[#fafafa] dark:bg-[#202c37] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out'>
+          <div className='button-container'>
             <button
-              className="back-button dark:bg-[#2b3945] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out"
+              className='back-button dark:bg-[#2b3945] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out'
               onClick={closeModal}
             >
-              <i className="fa-solid fa-arrow-left"></i>
+              <i className='fa-solid fa-arrow-left'></i>
               Back
             </button>
           </div>
 
-          <div className="modal-content">
-            <div className="modal-img-container">
+          <div className='modal-content'>
+            <div className='modal-img-container'>
               <img
-                className="modal-img"
+                className='modal-img'
                 src={selectedCountry.flag}
                 alt={selectedCountry.name}
               />
             </div>
 
-            <div className="modal-details">
-              <h2 className="modal-country-title">{selectedCountry.name}</h2>
+            <div className='modal-details'>
+              <h2 className='modal-country-title'>{selectedCountry.name}</h2>
 
-              <div class="modal-country-details">
-                <div className="details-left">
+              <div class='modal-country-details'>
+                <div className='details-left'>
                   <p>
-                    <strong>Native Name:</strong> {selectedCountry.nativeName}
+                    <strong>Native Name: </strong> {selectedCountry.nativeName}
                   </p>
                   <p>
-                    <strong>Population:</strong>{" "}
+                    <strong>Population: </strong>{' '}
                     {selectedCountry.population.toLocaleString()}
                   </p>
                   <p>
-                    <strong>Region:</strong> {selectedCountry.region}
+                    <strong>Region: </strong> {selectedCountry.region}
                   </p>
                   <p>
-                    <strong>Sub Region:</strong> {selectedCountry.subregion}
+                    <strong>Sub Region: </strong> {selectedCountry.subregion}
                   </p>
                   <p>
-                    <strong>Capital:</strong> {selectedCountry.capital}
+                    <strong>Capital: </strong> {selectedCountry.capital}
                   </p>
                 </div>
 
-                <div className="details-right">
+                <div className='details-right'>
                   <p>
-                    <strong>Top Level Domain:</strong>
+                    <strong>Top Level Domain: </strong>
                     {selectedCountry.topLevelDomain}
                   </p>
                   <p>
-                    <strong>Currencies:</strong>
+                    <strong>Currencies: </strong>
                     {selectedCountry.currencies
                       .map((currency) => currency.name)
-                      .join(", ")}
+                      .join(', ')}
                   </p>
                   <p>
-                    <strong>Languages:</strong>
+                    <strong>Languages: </strong>
                     {selectedCountry.languages
                       .map((language) => language.name)
-                      .join(", ")}
+                      .join(', ')}
                   </p>
                 </div>
               </div>
 
-              <div className="border-countries-container">
-                <strong className="border-countries-title">
+              <div className='border-countries-container'>
+                <strong className='border-countries-title'>
                   Border Countries:
                 </strong>
-                <div className="border-countries">
+                <div className='border-countries'>
                   {selectedCountry &&
                     selectedCountry.borders &&
                     selectedCountry.borders.map((borderCode) => {
@@ -237,7 +237,7 @@ const Home = () => {
                       );
                       return (
                         <span
-                          className="border-country dark:bg-[#2b3945] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out"
+                          className='border-country dark:bg-[#2b3945] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out'
                           key={borderCountry.alpha3Code}
                           onClick={() => openModal(borderCountry)}
                         >

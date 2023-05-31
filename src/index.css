@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
 :root {
   --light-bg: #fafafa;
@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 li {
@@ -175,6 +175,7 @@ li {
 
 .country-details {
   padding: 0 1.5rem 2rem;
+  line-height: 2rem;
 }
 
 .country-card .country-details {
@@ -192,9 +193,10 @@ li {
   /* display: flex;
   align-items: center;
   justify-content: center; */
+  align-items: center;
   width: 100vw;
   height: 100%;
-  padding: 7rem 2rem 0;
+  padding: 7rem 2rem 2rem;
   margin: 0 auto;
   overflow: auto;
 }
@@ -210,6 +212,7 @@ li {
   cursor: pointer;
   font-size: 16px;
   padding: 0.5rem 2rem;
+  margin: 2rem 0;
   border: none;
   border-radius: 5px;
   box-shadow: 1px 1px 4px 2px rgba(20, 20, 20, 0.4);
@@ -228,11 +231,11 @@ li {
   /* text-align: center; */
   display: flex;
   justify-content: space-between;
+  gap: 4rem;
 }
 
 .modal-img-container {
-  width: 35vw;
-  margin-right: 2rem;
+  width: 40vw;
 }
 
 .modal-img {
@@ -253,12 +256,12 @@ li {
   align-content: center;
   justify-content: space-between;
   width: 50%;
-  margin-left: 2rem;
 }
 
 .modal-country-details {
   display: flex;
   justify-content: space-between;
+  line-height: 2rem;
 }
 
 .border-countries-container {
@@ -297,9 +300,13 @@ li {
   .countries-list {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .border-countries-container {
+    flex-direction: column;
+  }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .countries-list {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -328,8 +335,24 @@ li {
     color: #555555;
   }
 
+  .modal-img-container {
+    width: 100%;
+  }
+
   .modal-content {
     flex-direction: column;
+    width: 100%;
+  }
+
+  .modal-details {
+    flex-direction: column;
+    width: 100%;
+    gap: 4rem;
+  }
+
+  .modal-country-details {
+    flex-direction: column;
+    gap: 4rem;
   }
 }
 
