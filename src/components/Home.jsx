@@ -87,19 +87,19 @@ const Home = () => {
         <div className='search-wrapper'>
           <div className='search-box'>
             <input
-              className='search-input bg-[#ffffff]'
+              className='search-input bg-[#ffffff] dark:bg-[#2b3945] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out'
               value={searchInput}
               onChange={handleChange}
               onKeyDown={handleKeyDown}
               type='text'
               placeholder='Search for a country...'
             />
-            <i className='fa fa-search'></i>
+            <i className='fa fa-search dark:text-white transition duration-500 ease-in-out'></i>
           </div>
 
           <div className='select-wrapper'>
             <select
-              className='region-filter cursor-pointer bg-[#ffffff]'
+              className='region-filter cursor-pointer bg-[#ffffff] dark:bg-[#2b3945] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out'
               value={selectedRegion}
               onChange={handleRegionChange}
             >
