@@ -87,7 +87,7 @@ const Home = () => {
         <div className='search-wrapper'>
           <div className='search-box'>
             <input
-              className='search-input'
+              className='search-input bg-[#ffffff]'
               value={searchInput}
               onChange={handleChange}
               onKeyDown={handleKeyDown}
@@ -99,7 +99,7 @@ const Home = () => {
 
           <div className='select-wrapper'>
             <select
-              className='region-filter cursor-pointer'
+              className='region-filter cursor-pointer bg-[#ffffff]'
               value={selectedRegion}
               onChange={handleRegionChange}
             >
