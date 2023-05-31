@@ -29,7 +29,7 @@ const Country = () => {
           <div className="modal-details">
             <h2 className="modal-country-title">{country.name}</h2>
 
-            <div class="modal-country-details">
+            <div className="modal-country-details">
               <div className="details-left">
                 <p>
                   <strong>Native Name: </strong> {country.nativeName}
@@ -80,14 +80,18 @@ const Country = () => {
                     const borderCountry = data.find(
                       (country) => country.alpha3Code === borderCode
                     );
-                    return (
-                      <span
-                        className="border-country dark:bg-[#2b3945] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out"
-                        key={borderCountry.alpha3Code}
-                      >
-                        {borderCountry.name}
-                      </span>
-                    );
+                    if (borderCountry) {
+                      return (
+                        <Link
+                          to={`/country/${borderCountry.alpha3Code}`}
+                          className="border-country dark:bg-[#2b3945] text-[#111517] dark:text-[#ffffff] transition duration-500 ease-in-out"
+                          key={borderCountry.alpha3Code}
+                        >
+                          {borderCountry.name}
+                        </Link>
+                      );
+                    }
+                    return null;
                   })}
               </div>
             </div>
