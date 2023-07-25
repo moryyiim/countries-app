@@ -1,4 +1,13 @@
+
 # Frontend Mentor - REST Countries API with color theme switcher
+
+• This was a project that I completed on Frontend Mentor. 
+
+• I was tasked with creating an app that outputs data that pertains to each country with search and filtering capabilities. 
+
+• I also implemented  a toggle switch for switching between light and dark themes. I used React Router to handle the route changes.
+
+
 
 ![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)
 
