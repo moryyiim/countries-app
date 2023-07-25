@@ -5,7 +5,9 @@
 
 • I was tasked with creating an app that outputs data that pertains to each country with search and filtering capabilities. 
 
-• I also implemented  a toggle switch for switching between light and dark themes. I used React Router to handle the route changes.
+• I also implemented  a toggle switch for switching between light and dark themes. 
+
+• I used React Router to handle the route changes.
 
 
 
